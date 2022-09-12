@@ -1,0 +1,40 @@
+# Project: employee_system
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = system_main.o workerManager1.o employee.o manager7.o boss8.o
+LINKOBJ  = system_main.o workerManager1.o employee.o manager7.o boss8.o
+LIBS     = -L"D:/Cpp/Dev-Cpp/MinGW64/lib" -L"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Cpp/Dev-Cpp/MinGW64/include" -I"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Cpp/Dev-Cpp/MinGW64/include" -I"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = employee_system.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+system_main.o: system_main.cpp
+	$(CPP) -c system_main.cpp -o system_main.o $(CXXFLAGS)
+
+workerManager1.o: workerManager1.cpp
+	$(CPP) -c workerManager1.cpp -o workerManager1.o $(CXXFLAGS)
+
+employee.o: employee.cpp
+	$(CPP) -c employee.cpp -o employee.o $(CXXFLAGS)
+
+manager7.o: manager7.cpp
+	$(CPP) -c manager7.cpp -o manager7.o $(CXXFLAGS)
+
+boss8.o: boss8.cpp
+	$(CPP) -c boss8.cpp -o boss8.o $(CXXFLAGS)

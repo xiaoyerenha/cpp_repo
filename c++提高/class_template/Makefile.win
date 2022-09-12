@@ -1,0 +1,31 @@
+# Project: class_template
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = class_temp.o person.o
+LINKOBJ  = class_temp.o person.o
+LIBS     = -L"D:/Cpp/Dev-Cpp/MinGW64/lib" -L"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Cpp/Dev-Cpp/MinGW64/include" -I"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Cpp/Dev-Cpp/MinGW64/include" -I"D:/Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = class_template.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+class_temp.o: class_temp.cpp
+	$(CPP) -c class_temp.cpp -o class_temp.o $(CXXFLAGS)
+
+person.o: person.cpp
+	$(CPP) -c person.cpp -o person.o $(CXXFLAGS)
